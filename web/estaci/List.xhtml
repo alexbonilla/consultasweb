@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEstaciTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EstaciListForm">
+                <p:panel header="#{bundle.ListEstaciTitle}">
+                    <p:dataTable id="datalist" value="#{estaciController.items}" var="item"
+                                 selectionMode="single" selection="#{estaciController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.estcodig}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estcodig}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estcodig}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estnombr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estnombr}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estzona}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estzona}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estdelet}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estdelet}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estdirec}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estdirec}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estdirec2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estdirec2}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEstaciTitle_estestab}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estestab}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{estaciController.prepareCreate}" update=":EstaciCreateForm" oncomplete="PF('EstaciCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EstaciViewForm" oncomplete="PF('EstaciViewDialog').show()" disabled="#{empty estaciController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EstaciEditForm" oncomplete="PF('EstaciEditDialog').show()" disabled="#{empty estaciController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{estaciController.destroy}" update=":growl,datalist" disabled="#{empty estaciController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClientEditDlg" widgetVar="ClientEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClientTitle}">
+            <h:form id="ClientEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clientController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClientLabel_clinumcl}" for="clinumcl" />
+                        <p:inputText id="clinumcl" value="#{clientController.selected.clinumcl}" title="#{bundle.EditClientTitle_clinumcl}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_clinumcl}"/>
+                        <p:outputLabel value="#{bundle.EditClientLabel_clinombr}" for="clinombr" />
+                        <p:inputText id="clinombr" value="#{clientController.selected.clinombr}" title="#{bundle.EditClientTitle_clinombr}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clitidoc}" for="clitidoc" />
+                        <p:inputText id="clitidoc" value="#{clientController.selected.clitidoc}" title="#{bundle.EditClientTitle_clitidoc}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clidocum}" for="clidocum" />
+                        <p:inputText id="clidocum" value="#{clientController.selected.clidocum}" title="#{bundle.EditClientTitle_clidocum}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clidomic}" for="clidomic" />
+                        <p:inputText id="clidomic" value="#{clientController.selected.clidomic}" title="#{bundle.EditClientTitle_clidomic}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_cliprovi}" for="cliprovi" />
+                        <p:inputText id="cliprovi" value="#{clientController.selected.cliprovi}" title="#{bundle.EditClientTitle_cliprovi}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clilocal}" for="clilocal" />
+                        <p:inputText id="clilocal" value="#{clientController.selected.clilocal}" title="#{bundle.EditClientTitle_clilocal}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clitelef}" for="clitelef" />
+                        <p:inputText id="clitelef" value="#{clientController.selected.clitelef}" title="#{bundle.EditClientTitle_clitelef}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clitiiva}" for="clitiiva" />
+                        <p:inputText id="clitiiva" value="#{clientController.selected.clitiiva}" title="#{bundle.EditClientTitle_clitiiva}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clicomen}" for="clicomen" />
+                        <p:inputText id="clicomen" value="#{clientController.selected.clicomen}" title="#{bundle.EditClientTitle_clicomen}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_cliexped}" for="cliexped" />
+                        <p:inputText id="cliexped" value="#{clientController.selected.cliexped}" title="#{bundle.EditClientTitle_cliexped}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_cliemail}" for="cliemail" />
+                        <p:inputText id="cliemail" value="#{clientController.selected.cliemail}" title="#{bundle.EditClientTitle_cliemail}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clidelet}" for="clidelet" />
+                        <p:inputText id="clidelet" value="#{clientController.selected.clidelet}" title="#{bundle.EditClientTitle_clidelet}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_clirazsoc}" for="clirazsoc" />
+                        <p:inputText id="clirazsoc" value="#{clientController.selected.clirazsoc}" title="#{bundle.EditClientTitle_clirazsoc}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_cliautog}" for="cliautog" />
+                        <p:inputText id="cliautog" value="#{clientController.selected.cliautog}" title="#{bundle.EditClientTitle_cliautog}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clientController.update}" value="#{bundle.Save}" update="display,:ClientListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClientEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClientEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

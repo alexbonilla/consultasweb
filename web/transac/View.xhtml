@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TransacViewDlg" widgetVar="TransacViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTransacTitle}">
+            <h:form id="TransacViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{transacController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTransacLabel_tranombre}"/>
+                        <h:outputText value="#{transacController.selected.tranombre}" title="#{bundle.ViewTransacTitle_tranombre}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tradocumento}"/>
+                        <h:outputText value="#{transacController.selected.tradocumento}" title="#{bundle.ViewTransacTitle_tradocumento}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tradireccion}"/>
+                        <h:outputText value="#{transacController.selected.tradireccion}" title="#{bundle.ViewTransacTitle_tradireccion}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tralocalidad}"/>
+                        <h:outputText value="#{transacController.selected.tralocalidad}" title="#{bundle.ViewTransacTitle_tralocalidad}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tratipo}"/>
+                        <h:outputText value="#{transacController.selected.tratipo}" title="#{bundle.ViewTransacTitle_tratipo}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traprovincia}"/>
+                        <h:outputText value="#{transacController.selected.traprovincia}" title="#{bundle.ViewTransacTitle_traprovincia}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tratelefono}"/>
+                        <h:outputText value="#{transacController.selected.tratelefono}" title="#{bundle.ViewTransacTitle_tratelefono}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trafecha}"/>
+                        <h:outputText value="#{transacController.selected.trafecha}" title="#{bundle.ViewTransacTitle_trafecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trahora}"/>
+                        <h:outputText value="#{transacController.selected.trahora}" title="#{bundle.ViewTransacTitle_trahora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trafectran}"/>
+                        <h:outputText value="#{transacController.selected.trafectran}" title="#{bundle.ViewTransacTitle_trafectran}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trahoratra}"/>
+                        <h:outputText value="#{transacController.selected.trahoratra}" title="#{bundle.ViewTransacTitle_trahoratra}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traestacion}"/>
+                        <h:outputText value="#{transacController.selected.traestacion}" title="#{bundle.ViewTransacTitle_traestacion}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_travia}"/>
+                        <h:outputText value="#{transacController.selected.travia}" title="#{bundle.ViewTransacTitle_travia}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tratoperacion}"/>
+                        <h:outputText value="#{transacController.selected.tratoperacion}" title="#{bundle.ViewTransacTitle_tratoperacion}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traplaca}"/>
+                        <h:outputText value="#{transacController.selected.traplaca}" title="#{bundle.ViewTransacTitle_traplaca}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tradispositivo}"/>
+                        <h:outputText value="#{transacController.selected.tradispositivo}" title="#{bundle.ViewTransacTitle_tradispositivo}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tracategoria}"/>
+                        <h:outputText value="#{transacController.selected.tracategoria}" title="#{bundle.ViewTransacTitle_tracategoria}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tralecman}"/>
+                        <h:outputText value="#{transacController.selected.tralecman}" title="#{bundle.ViewTransacTitle_tralecman}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traval}"/>
+                        <h:outputText value="#{transacController.selected.traval}" title="#{bundle.ViewTransacTitle_traval}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tramontocr}"/>
+                        <h:outputText value="#{transacController.selected.tramontocr}" title="#{bundle.ViewTransacTitle_tramontocr}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tramontodb}"/>
+                        <h:outputText value="#{transacController.selected.tramontodb}" title="#{bundle.ViewTransacTitle_tramontodb}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trasaldo}"/>
+                        <h:outputText value="#{transacController.selected.trasaldo}" title="#{bundle.ViewTransacTitle_trasaldo}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traagrupacion}"/>
+                        <h:outputText value="#{transacController.selected.traagrupacion}" title="#{bundle.ViewTransacTitle_traagrupacion}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traobservacion}"/>
+                        <h:outputText value="#{transacController.selected.traobservacion}" title="#{bundle.ViewTransacTitle_traobservacion}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_traid}"/>
+                        <h:outputText value="#{transacController.selected.traid}" title="#{bundle.ViewTransacTitle_traid}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trafactu}"/>
+                        <h:outputText value="#{transacController.selected.trafactu}" title="#{bundle.ViewTransacTitle_trafactu}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_trafechaTrans}"/>
+                        <h:outputText value="#{transacController.selected.trafechaTrans}" title="#{bundle.ViewTransacTitle_trafechaTrans}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tracli}"/>
+                        <h:outputText value="#{transacController.selected.tracli}" title="#{bundle.ViewTransacTitle_tracli}"/>
+                        <h:outputText value="#{bundle.ViewTransacLabel_tracodest}"/>
+                        <h:outputText value="#{transacController.selected.tracodest}" title="#{bundle.ViewTransacTitle_tracodest}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TransacViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

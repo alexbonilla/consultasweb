@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template-user.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTransacTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="TransacListForm">
+                <p:remoteCommand name="onload" actionListener="#{transacController.setInitialDateRange}" autoRun="true" />
+                <p:panelGrid columns="2">
+                    <p:panel id="TransacSearch" header="Rango de Fecha">
+                        <p:calendar id="datesince" value="#{transacController.startDate}" mode="popup" placeholder="Desde"/>
+                        <p:calendar id="dateuntil" value="#{transacController.endDate}" mode="popup" placeholder="Hasta"/>
+                        <p:commandButton value="buscar" actionListener="#{transacController.getItemsByDateRange}" ajax="true" update="TransacListForm"/>
+                    </p:panel>
+                    <p:panel header="#{bundle.ListTransacTitle}">
+                        <p:dataTable id="datalist" value="#{transacController.items}" var="item"
+                                     selectionMode="single" selection="#{transacController.selected}"
+                                     paginator="true"
+                                     rowKey="#{item.traid}"
+                                     rows="10"
+                                     rowsPerPageTemplate="10,20,30,40,50"
+                                     >
+                            <p:ajax event="rowSelect"   update="viewButton"/>
+                            <p:ajax event="rowUnselect" update="viewButton"/>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tranombre}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tranombre}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tradocumento}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tradocumento}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tradireccion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tradireccion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tralocalidad}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tralocalidad}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tratipo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tratipo}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traprovincia}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traprovincia}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tratelefono}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tratelefono}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trafecha}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trafecha}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trahora}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trahora}">
+                                    <f:convertDateTime pattern="HH:mm:ss" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trafectran}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trafectran}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trahoratra}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trahoratra}">
+                                    <f:convertDateTime pattern="HH:mm:ss" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traestacion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traestacion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_travia}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.travia}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tratoperacion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tratoperacion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traplaca}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traplaca}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tradispositivo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tradispositivo}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tracategoria}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tracategoria}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tralecman}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tralecman}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traval}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traval}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tramontocr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tramontocr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tramontodb}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tramontodb}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trasaldo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trasaldo}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traagrupacion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traagrupacion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traobservacion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traobservacion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_traid}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.traid}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trafactu}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trafactu}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_trafechaTrans}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.trafechaTrans}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tracli}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tracli}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListTransacTitle_tracodest}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.tracodest}"/>
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":TransacViewForm" oncomplete="PF('TransacViewDialog').show()" disabled="#{empty transacController.selected}"/>
+                            </f:facet>
+                        </p:dataTable>
+                    </p:panel>
+                </p:panelGrid>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

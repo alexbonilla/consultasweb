@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstaciCreateDlg" widgetVar="EstaciCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEstaciTitle}">
+            <h:form id="EstaciCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estaciController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estcodig}" for="estcodig" />
+                        <p:inputText id="estcodig" value="#{estaciController.selected.estcodig}" title="#{bundle.CreateEstaciTitle_estcodig}" required="true" requiredMessage="#{bundle.CreateEstaciRequiredMessage_estcodig}"/>
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estnombr}" for="estnombr" />
+                        <p:inputText id="estnombr" value="#{estaciController.selected.estnombr}" title="#{bundle.CreateEstaciTitle_estnombr}" />
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estzona}" for="estzona" />
+                        <p:inputText id="estzona" value="#{estaciController.selected.estzona}" title="#{bundle.CreateEstaciTitle_estzona}" />
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estdelet}" for="estdelet" />
+                        <p:inputText id="estdelet" value="#{estaciController.selected.estdelet}" title="#{bundle.CreateEstaciTitle_estdelet}" />
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estdirec}" for="estdirec" />
+                        <p:inputText id="estdirec" value="#{estaciController.selected.estdirec}" title="#{bundle.CreateEstaciTitle_estdirec}" />
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estdirec2}" for="estdirec2" />
+                        <p:inputText id="estdirec2" value="#{estaciController.selected.estdirec2}" title="#{bundle.CreateEstaciTitle_estdirec2}" />
+                        <p:outputLabel value="#{bundle.CreateEstaciLabel_estestab}" for="estestab" />
+                        <p:inputText id="estestab" value="#{estaciController.selected.estestab}" title="#{bundle.CreateEstaciTitle_estestab}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estaciController.create}" value="#{bundle.Save}" update="display,:EstaciListForm:datalist,:growl" oncomplete="handleSubmit(args,'EstaciCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstaciCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

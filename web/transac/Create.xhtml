@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TransacCreateDlg" widgetVar="TransacCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTransacTitle}">
+            <h:form id="TransacCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{transacController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tranombre}" for="tranombre" />
+                        <p:inputText id="tranombre" value="#{transacController.selected.tranombre}" title="#{bundle.CreateTransacTitle_tranombre}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tradocumento}" for="tradocumento" />
+                        <p:inputText id="tradocumento" value="#{transacController.selected.tradocumento}" title="#{bundle.CreateTransacTitle_tradocumento}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tradireccion}" for="tradireccion" />
+                        <p:inputText id="tradireccion" value="#{transacController.selected.tradireccion}" title="#{bundle.CreateTransacTitle_tradireccion}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tralocalidad}" for="tralocalidad" />
+                        <p:inputText id="tralocalidad" value="#{transacController.selected.tralocalidad}" title="#{bundle.CreateTransacTitle_tralocalidad}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tratipo}" for="tratipo" />
+                        <p:inputText id="tratipo" value="#{transacController.selected.tratipo}" title="#{bundle.CreateTransacTitle_tratipo}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traprovincia}" for="traprovincia" />
+                        <p:inputText id="traprovincia" value="#{transacController.selected.traprovincia}" title="#{bundle.CreateTransacTitle_traprovincia}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tratelefono}" for="tratelefono" />
+                        <p:inputText id="tratelefono" value="#{transacController.selected.tratelefono}" title="#{bundle.CreateTransacTitle_tratelefono}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trafecha}" for="trafecha" />
+                        <p:calendar id="trafecha" pattern="MM/dd/yyyy" value="#{transacController.selected.trafecha}" title="#{bundle.EditTransacTitle_trafecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trahora}" for="trahora" />
+                        <p:calendar id="trahora" pattern="HH:mm:ss" value="#{transacController.selected.trahora}" title="#{bundle.EditTransacTitle_trahora}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trafectran}" for="trafectran" />
+                        <p:calendar id="trafectran" pattern="MM/dd/yyyy" value="#{transacController.selected.trafectran}" title="#{bundle.EditTransacTitle_trafectran}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trahoratra}" for="trahoratra" />
+                        <p:calendar id="trahoratra" pattern="HH:mm:ss" value="#{transacController.selected.trahoratra}" title="#{bundle.EditTransacTitle_trahoratra}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traestacion}" for="traestacion" />
+                        <p:inputText id="traestacion" value="#{transacController.selected.traestacion}" title="#{bundle.CreateTransacTitle_traestacion}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_travia}" for="travia" />
+                        <p:inputText id="travia" value="#{transacController.selected.travia}" title="#{bundle.CreateTransacTitle_travia}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tratoperacion}" for="tratoperacion" />
+                        <p:inputText id="tratoperacion" value="#{transacController.selected.tratoperacion}" title="#{bundle.CreateTransacTitle_tratoperacion}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traplaca}" for="traplaca" />
+                        <p:inputText id="traplaca" value="#{transacController.selected.traplaca}" title="#{bundle.CreateTransacTitle_traplaca}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tradispositivo}" for="tradispositivo" />
+                        <p:inputText id="tradispositivo" value="#{transacController.selected.tradispositivo}" title="#{bundle.CreateTransacTitle_tradispositivo}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tracategoria}" for="tracategoria" />
+                        <p:inputText id="tracategoria" value="#{transacController.selected.tracategoria}" title="#{bundle.CreateTransacTitle_tracategoria}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tralecman}" for="tralecman" />
+                        <p:inputText id="tralecman" value="#{transacController.selected.tralecman}" title="#{bundle.CreateTransacTitle_tralecman}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traval}" for="traval" />
+                        <p:inputText id="traval" value="#{transacController.selected.traval}" title="#{bundle.CreateTransacTitle_traval}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tramontocr}" for="tramontocr" />
+                        <p:inputText id="tramontocr" value="#{transacController.selected.tramontocr}" title="#{bundle.CreateTransacTitle_tramontocr}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tramontodb}" for="tramontodb" />
+                        <p:inputText id="tramontodb" value="#{transacController.selected.tramontodb}" title="#{bundle.CreateTransacTitle_tramontodb}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trasaldo}" for="trasaldo" />
+                        <p:inputText id="trasaldo" value="#{transacController.selected.trasaldo}" title="#{bundle.CreateTransacTitle_trasaldo}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traagrupacion}" for="traagrupacion" />
+                        <p:inputText id="traagrupacion" value="#{transacController.selected.traagrupacion}" title="#{bundle.CreateTransacTitle_traagrupacion}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traobservacion}" for="traobservacion" />
+                        <p:inputText id="traobservacion" value="#{transacController.selected.traobservacion}" title="#{bundle.CreateTransacTitle_traobservacion}" />
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_traid}" for="traid" />
+                        <p:inputText id="traid" value="#{transacController.selected.traid}" title="#{bundle.CreateTransacTitle_traid}" required="true" requiredMessage="#{bundle.CreateTransacRequiredMessage_traid}"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trafactu}" for="trafactu" />
+                        <p:inputText id="trafactu" value="#{transacController.selected.trafactu}" title="#{bundle.CreateTransacTitle_trafactu}" required="true" requiredMessage="#{bundle.CreateTransacRequiredMessage_trafactu}"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_trafechaTrans}" for="trafechaTrans" />
+                        <p:calendar id="trafechaTrans" pattern="MM/dd/yyyy HH:mm:ss" value="#{transacController.selected.trafechaTrans}" title="#{bundle.EditTransacTitle_trafechaTrans}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tracli}" for="tracli" />
+                        <p:selectOneMenu id="tracli" value="#{transacController.selected.tracli}" required="true" requiredMessage="#{bundle.EditTransacRequiredMessage_tracli}">
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="tracliItem"
+                                           itemValue="#{tracliItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTransacLabel_tracodest}" for="tracodest" />
+                        <p:selectOneMenu id="tracodest" value="#{transacController.selected.tracodest}" required="true" requiredMessage="#{bundle.EditTransacRequiredMessage_tracodest}">
+                            <f:selectItems value="#{estaciController.itemsAvailableSelectOne}"
+                                           var="tracodestItem"
+                                           itemValue="#{tracodestItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{transacController.create}" value="#{bundle.Save}" update="display,:TransacListForm:datalist,:growl" oncomplete="handleSubmit(args,'TransacCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TransacCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
