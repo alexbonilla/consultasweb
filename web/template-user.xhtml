@@ -21,7 +21,11 @@
                 <h:form id="menuForm">                    
                     <p:menubar>
                         <p:menuitem value="Inicio" outcome="/transac/List.xhtml" icon="ui-icon-home"/>
-                        <p:menuitem action="#{loginBean.logout}" value="Cerrar sesión" ajax="false"></p:menuitem>
+                        <p:submenu label="Mi Cuenta">
+                            <p:menuitem value="Informaci&oacute;n Personal" outcome="/altaUsuarios/ChangePersonalInfo.xhtml" />
+                            <p:menuitem value="Cambiar clave" outcome="/altaUsuarios/ChangePassword.xhtml" />
+                            <p:menuitem action="#{loginBean.logout}" value="Cerrar sesión" ajax="false"></p:menuitem>
+                        </p:submenu>                        
                     </p:menubar>
                 </h:form>
             </p:layoutUnit>

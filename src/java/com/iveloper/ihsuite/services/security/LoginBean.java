@@ -92,7 +92,7 @@ public class LoginBean implements Serializable {
             
             if (result) {
 
-                AltaUsuarios thisAccount = accountController.findAltaUsuarios(uname);
+                sessionAccount = accountController.findAltaUsuarios(uname);
                 //ask if this user is admin
 //                result = (thisAccount.getRoles().equals("admin") && thisAccount.getEntityid().getId().equals(entityid)); //if it is the correct role and entity
 
